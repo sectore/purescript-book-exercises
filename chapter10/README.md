@@ -2,7 +2,7 @@
 
 ## [10.9.](./10.9.js)
 
-1. (1. (Easy) What are the runtime representations of these types?
+1. (Easy) What are the runtime representations of these types?
 
 ```purescript
 forall a. a
