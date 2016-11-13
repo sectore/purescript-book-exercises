@@ -11,7 +11,7 @@ exports.anyOrd = (dict) => (arr) => true // (e.g. arr.length === 0);
 
 
 // ex.10.9.2:
-// Run: 
+// Run
 // psc-package install arrays
 // psc-package build
 // node ./10.9.js
