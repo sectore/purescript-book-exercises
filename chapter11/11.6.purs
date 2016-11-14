@@ -20,6 +20,12 @@ runSumArrayW = runWriter <<< sumArrayW
 -- ex. 11.6.2
 -- -------------------------------------------------
 
+import Prelude (Unit, (<<<), ($), (*), (+), (/), otherwise)
+import Control.Monad.Writer (Writer, tell, runWriter)
+import Data.Tuple (Tuple)
+import Data.Int (odd)
+import Data.Array (cons)
+
 collatz :: Int -> Array Int
 collatz 1 = [1]
 collatz n	| odd n 		= cons n $ collatz (3 * n + 1)
