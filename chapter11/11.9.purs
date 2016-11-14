@@ -28,28 +28,16 @@ import Control.Monad.State.Trans (StateT, runStateT)
 import Control.Monad.Trans.Class (lift)
 import Control.Monad.Writer (tell)
 import Control.Monad.Writer.Trans (WriterT, runWriterT)
-import Data.Either (Either)
 import Data.Identity (Identity)
 import Data.Maybe (Maybe(..))
 import Data.Newtype (unwrap)
-import Data.String (Pattern(Pattern), drop, take, stripPrefix, length)
-import Data.Tuple (Tuple)
+import Data.String (Pattern(Pattern), take, stripPrefix, length)
 import Prelude (bind, show, pure, ($), (<>))
 
 
 type Errors = Array String
 type Log = Array String
 type Parser = StateT String (WriterT Log (ExceptT Errors Identity))
-
-split :: Parser String
-split = do
-  s <- get
-  lift $ tell ["The state is " <> show s]
-  case s of
-    "" -> lift $ lift $ throwError ["Empty string"]
-    _ -> do
-      put (drop 1 s)
-      pure (take 1 s)
 
 string :: String -> Parser String
 string str = do
