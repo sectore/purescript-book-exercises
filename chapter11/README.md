@@ -50,3 +50,19 @@ Modify your function to use the `Writer` monad to log each application of the Co
 ## [11.9.](./11.9.purs)
 
 1. (Easy) Use the `ExceptT` monad transformer over the `Identity` functor to write a function `safeDivide` which divides two numbers, throwing an error if the denominator is zero.
+
+2. (Medium) Write a parser
+
+```purescript
+string :: String -> Parser String
+```
+which matches a string as a prefix of the current state, or fails with an error message.
+
+Your parser should work as follows:
+
+```bash
+> runParser (string "abc") "abcdef"
+ (Right (Tuple (Tuple "abc" "def") ["The state is abcdef"]))
+```
+
+_Hint:_ you can use the implementation of `split` as a starting point. You might find the `stripPrefix` function useful.
