@@ -1,6 +1,6 @@
 # Chapter 11: "Monadic Adventures"
 
-## [11.4.](./11.4.purs))
+## [11.4.](./11.4.purs)
 
 1. (Easy) What is the result of replacing execState with runState or evalState in our example above?
 
@@ -30,7 +30,7 @@ which tests whether or not a `String` of parentheses is balanced, by keeping tra
 
 _Hint:_ you may like to use the `toCharArray` function from the `Data.String` module to turn the input string into an array of characters.
 
-## [11.6.](./11.6.purs))
+## [11.6.](./11.6.purs)
 
 
 1. (Medium) Rewrite the `sumArray` function above using the `Writer` monad and the `Additive Int` monoid from the `purescript-monoid` package.
