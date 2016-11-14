@@ -46,3 +46,7 @@ It is conjectured that the iterated Collatz sequence always reaches `1` after so
 Write a function which uses recursion to calculate how many iterations of the Collatz function are required before the sequence reaches `1`.
 
 Modify your function to use the `Writer` monad to log each application of the Collatz function.
+
+## [11.9.](./11.9.purs)
+
+1. (Easy) Use the `ExceptT` monad transformer over the `Identity` functor to write a function `safeDivide` which divides two numbers, throwing an error if the denominator is zero.
