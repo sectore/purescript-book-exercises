@@ -1,26 +1,20 @@
 
--- -------------------------------------------------
--- ex. 11.9.1
--- -------------------------------------------------
-
-import Prelude ((<<<), ($), (/))
-import Control.Monad.Except.Trans (ExceptT, throwError, runExceptT)
-import Control.Monad.Trans.Class (lift)
-import Data.Either (Either)
-import Data.Identity (Identity(Identity))
-
-safeDivide :: Int -> Int -> ExceptT String Identity Int
-safeDivide _ 0 = throwError "denominator is zero"
-safeDivide a b = lift <<< Identity $ (/) a b
-
-runSafeDivide :: Int -> Int -> Identity (Either String Int)
-runSafeDivide a =  runExceptT <<< safeDivide a
-
-
-
--- -------------------------------------------------
--- ex. 11.9.2
--- -------------------------------------------------
+-- Exercise:
+-- (Medium) Write a parser
+--
+-- ```purescript
+-- string :: String -> Parser String
+-- ```
+-- which matches a string as a prefix of the current state, or fails with an error message.
+--
+-- Your parser should work as follows:
+--
+-- ```bash
+-- > runParser (string "abc") "abcdef"
+--  (Right (Tuple (Tuple "abc" "def") ["The state is abcdef"]))
+-- ```
+--
+-- _Hint:_ you can use the implementation of `split` as a starting point. You might find the `stripPrefix` function useful.
 
 import Control.Monad.Except.Trans (ExceptT, runExceptT, throwError)
 import Control.Monad.State (get, put)
